@@ -43,9 +43,9 @@ streamlit.header("The fruit load data contains:")
 mylist=streamlit.dataframe(my_data_rows)
 a1=mylist.set_index('Fruit')
 
-fruit_name = streamlit.multiselect('What fruit would you like to add: ', list(a1.index),['jackfruit'])
-b1=a1.loc[fruit_name]
-streamlit.dataframe(b1)
+add_my_fruit = streamlit.text_input('What would you like to add:') 
+my_cur.execute("insert into fruit_load_values('from streamlit')")
+
 
 
 
