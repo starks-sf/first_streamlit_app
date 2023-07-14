@@ -41,9 +41,11 @@ my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load data contains:")
 mylist=streamlit.dataframe(my_data_rows)
+a1=mylist.set_index('Fruit')
 
-fruit_name = streamlit.text_input('What fruit would you like to add: ',mylist)
-streamlit.text(fruit_name)
+fruit_name = streamlit.multiselect('What fruit would you like to add: ', list(a1.index),['jackfruit'])
+b1=a1.loc[fruit_name]
+streamlit.dataframe(b1)
 
 
 
